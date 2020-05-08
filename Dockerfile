@@ -1,5 +1,6 @@
 FROM fedora:31
 
+# https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.17.0-stable.tar.xz
 ENV FLUTTER_CHANNEL=stable
 ENV FLUTTER_VERSION=1.17.0-${FLUTTER_CHANNEL}
 
@@ -30,7 +31,7 @@ USER work:work
 RUN mkdir -p /home/work/src
 
 RUN cd ~ \
-    && wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz \
+    && wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz \
     && tar xf flutter.tar.xz -C ~/ \
     && rm flutter.tar.xz
 
