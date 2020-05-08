@@ -1,7 +1,7 @@
 FROM fedora:31
 
-ENV FLUTTER_CHANNEL=dev
-ENV FLUTTER_VERSION=1.15.3-${FLUTTER_CHANNEL}
+ENV FLUTTER_CHANNEL=stable
+ENV FLUTTER_VERSION=1.17.0-${FLUTTER_CHANNEL}
 
 RUN dnf update -y \
     && dnf install -y wget git \
@@ -36,6 +36,6 @@ RUN cd ~ \
 
 ENV PATH=$PATH:/home/work/flutter/bin
 
-RUN flutter channel dev
+RUN flutter channel $FLUTTER_CHANNEL
 RUN flutter upgrade && flutter precache
 WORKDIR /home/work/src
