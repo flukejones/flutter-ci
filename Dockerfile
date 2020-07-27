@@ -1,8 +1,8 @@
 FROM fedora:31
 
 # https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.17.0-stable.tar.xz
-ENV FLUTTER_CHANNEL=stable
-ENV FLUTTER_VERSION=1.17.0-${FLUTTER_CHANNEL}
+ENV FLUTTER_CHANNEL=dev
+ENV FLUTTER_VERSION=1.21.0-1.0.pre-${FLUTTER_CHANNEL}
 
 RUN dnf update -y \
     && dnf install -y wget git \
